@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.AcfKvvsR.js";const p=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"Deanfile.md","filePath":"Deanfile.md","lastUpdated":1752083084000}'),n={name:"Deanfile.md"};function r(o,s,c,i,d,f){return a(),t("div")}const _=e(n,[["render",r]]);export{p as __pageData,_ as default};
