@@ -4,7 +4,7 @@ import type { DefaultTheme } from 'vitepress'
 export const nav: DefaultTheme.Config['nav'] = [
     { text: '参观', link: '/' },
     { text: '核心崩溃分析室', link: '/markdown-examples' },
-    { text: '零碎疗养区', link: '/' },
+    { text: '零碎疗养区', link: '/FRA/markdown-examples' },
     { text: '高危日志', link: '/HRlog/algorithm' },
     { text: '病历仓库', link: '/' },
     { text: '妄想症病房', link: 'http://47.122.119.35/' },

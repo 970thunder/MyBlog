@@ -6,7 +6,7 @@
 
 <style>
 .busuanzi {
-    font-size: 15px;
+    font-size: 10px;
     color: gray;
     text-align: center;
 }

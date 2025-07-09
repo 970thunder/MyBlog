@@ -10,7 +10,7 @@ export default defineConfig({
   //设置输出目录
   outDir: "dist",
   //设置源目录
-  srcDir: "src",
+  srcDir: "./src",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     // 顶部导航栏
@@ -18,15 +18,29 @@ export default defineConfig({
     // 左上角文字
     siteTitle: "记录神经缝隙溜出的奇思妙想🍄",
     // 侧边栏
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: {
+      '/HRlog/': [
+        {
+          text: '高危日志',
+          collapsed: false,
+          items: [
+            { text: 'algorithm', link: '/HRlog/algorithm' },
+            { text: 'none', link: '/' }
+          ]
+        }
+      ],
+
+      '/FRA/': [
+        {
+          text: '零碎疗养区',
+          collapsed: false,
+          items: [
+            { text: 'markdown-examples', link: '/FRA/markdown-examples' },
+            { text: 'api-examples', link: '/FRA/api-examples' },
+          ]
+        }
+      ]
+    },
 
     // footer: {
     //   message: ``,
@@ -41,7 +55,7 @@ export default defineConfig({
     // https://vitepress.dev/zh/reference/default-theme-config#outline
     outline: {
       level: [2, 3],
-      label: "页面导航",
+      label: "《 区 块 地 图 》",
     },
 
     lastUpdated: {
@@ -91,10 +105,17 @@ export default defineConfig({
   //markdown配置
   markdown: {
 
+    lineNumbers: true,
     config: (md) => {
 
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+        let htmlResult = slf.renderToken(tokens, idx, options);
+        if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`;
+        return htmlResult;
+      }
+
       md.use(groupIconMdPlugin) //代码组图标
-      
+
       // 代码组中添加图片
       md.use((md) => {
         const defaultRender = md.render
@@ -144,15 +165,14 @@ export default defineConfig({
           // 其他代码块按默认规则渲染（如 java, js 等）
           return defaultFence(tokens, idx, options, env, self);
         };
-        md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
-          let htmlResult = slf.renderToken(tokens, idx, options);
-          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`;
-          return htmlResult;
-        }
+        
       })
     },
   },
   vite: {
+    resolve: {
+      preserveSymlinks: true,
+    },
     plugins: [
       groupIconVitePlugin(), //代码组图标
       vitepressProtectPlugin({

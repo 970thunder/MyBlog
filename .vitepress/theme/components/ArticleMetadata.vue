@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useData } from 'vitepress'
 import { computed, ref, onMounted } from 'vue'
-import { countWord } from '../utils/functions'
+import { countWord } from '../untils/functions'
 
 const { page } = useData()
 const date = computed(
