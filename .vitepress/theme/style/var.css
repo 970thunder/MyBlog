@@ -1,7 +1,7 @@
 /* var.css */
 :root {
     --vp-c-brand-1: #5d8ef0;
-    --vp-c-brand-2: #299764;
+    --vp-c-brand-2: #0a4a7e;
     --vp-c-brand-3: #45659a;
 
     /* hero标题渐变色 - 日间模式 */
@@ -16,7 +16,7 @@
 
 .dark {
     --vp-c-brand-1: #5d8ef0;
-    --vp-c-brand-2: #299764;
+    --vp-c-brand-2: #0a4a7e;
     --vp-c-brand-3: #45659a;
 
     /* hero标题渐变色 - 夜间模式 */

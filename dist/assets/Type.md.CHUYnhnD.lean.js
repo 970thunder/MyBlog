@@ -1,1 +1,0 @@
-import{_ as o,c as s,o as i,ai as a}from"./chunks/framework.AcfKvvsR.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"Type.md","filePath":"Type.md","lastUpdated":null}'),e={name:"Type.md"};function t(g,l,n,p,r,d){return i(),s("div",null,l[0]||(l[0]=[a("",18)]))}const h=o(e,[["render",t]]);export{m as __pageData,h as default};

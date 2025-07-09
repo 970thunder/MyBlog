@@ -2,15 +2,26 @@
 import type { DefaultTheme } from 'vitepress'
 
 export const nav: DefaultTheme.Config['nav'] = [
-    { text: '主治医生', link: '/' },
-    { text: 'Examples', link: '/markdown-examples' },
-    { text: 'VitePress', link: 'https://vitepress.dev/' },
+    { text: '参观', link: '/' },
+    { text: '核心崩溃分析室', link: '/markdown-examples' },
+    { text: '零碎疗养区', link: '/' },
+    { text: '高危日志', link: '/HRlog/algorithm' },
+    { text: '病历仓库', link: '/' },
+    { text: '妄想症病房', link: 'http://47.122.119.35/' },
     {
-        text: '下拉模板',
+        text: 'software药房', 
         items: [
-            { text: '病历档案室', link: '' },
+            { text: '中钥存储仓', link: '/' },
+            { text: '西钥储蓄库', link: '/' },
+        ],
+     },
+    {
+        text: '系统广播',
+        items: [
+            { text: '病区广播', link: '' },
             { text: '院内公告', link: '/Type.md' },
         ],
     },
+    { text: '院长档案', link: '/' },
 
 ]

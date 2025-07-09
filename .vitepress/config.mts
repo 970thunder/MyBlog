@@ -5,7 +5,7 @@ import vitepressProtectPlugin from "vitepress-protect-plugin"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "记录神经缝隙溜出的奇思妙想",
+  title: "Hyper伊甸园",
   description: "小泥人Hyper的个人博客网站",
   //设置输出目录
   outDir: "dist",
@@ -15,6 +15,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     // 顶部导航栏
     nav,
+    // 左上角文字
+    siteTitle: "记录神经缝隙溜出的奇思妙想🍄",
     // 侧边栏
     sidebar: [
       {
