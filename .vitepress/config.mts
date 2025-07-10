@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { nav } from './configs'
+import { nav,sidebar } from './configs'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import vitepressProtectPlugin from "vitepress-protect-plugin"
 
@@ -18,29 +18,7 @@ export default defineConfig({
     // 左上角文字
     siteTitle: "记录神经缝隙溜出的奇思妙想🍄",
     // 侧边栏
-    sidebar: {
-      '/HRlog/': [
-        {
-          text: '高危日志',
-          collapsed: false,
-          items: [
-            { text: 'algorithm', link: '/HRlog/algorithm' },
-            { text: 'none', link: '/' }
-          ]
-        }
-      ],
-
-      '/FRA/': [
-        {
-          text: '零碎疗养区',
-          collapsed: false,
-          items: [
-            { text: 'markdown-examples', link: '/FRA/markdown-examples' },
-            { text: 'api-examples', link: '/FRA/api-examples' },
-          ]
-        }
-      ]
-    },
+    sidebar,
 
     // footer: {
     //   message: ``,
@@ -69,7 +47,60 @@ export default defineConfig({
     // GitHub链接
     socialLinks: [
       { icon: 'github', link: 'https://github.com/970thunder' }
-    ]
+    ],
+
+    //Algolia搜索纯中文版
+    search: {
+      provider: 'algolia',
+      options: {
+        appId: '9O4D8PVCXZ',
+        apiKey: '38af440967f5a3f50f727bd8ba361049',
+        indexName: 'doc',
+        locales: {
+          root: {
+            placeholder: '搜索文档',
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                searchBox: {
+                  resetButtonTitle: '清除查询条件',
+                  resetButtonAriaLabel: '清除查询条件',
+                  cancelButtonText: '取消',
+                  cancelButtonAriaLabel: '取消'
+                },
+                startScreen: {
+                  recentSearchesTitle: '搜索历史',
+                  noRecentSearchesText: '没有搜索历史',
+                  saveRecentSearchButtonTitle: '保存至搜索历史',
+                  removeRecentSearchButtonTitle: '从搜索历史中移除',
+                  favoriteSearchesTitle: '收藏',
+                  removeFavoriteSearchButtonTitle: '从收藏中移除'
+                },
+                errorScreen: {
+                  titleText: '无法获取结果',
+                  helpText: '你可能需要检查你的网络连接'
+                },
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换',
+                  closeText: '关闭',
+                  searchByText: '搜索提供者'
+                },
+                noResultsScreen: {
+                  noResultsText: '无法找到相关结果',
+                  suggestedQueryText: '你可以尝试查询',
+                  reportMissingResultsText: '你认为该查询应该有结果？',
+                  reportMissingResultsLinkText: '点击反馈'
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
   head: [
 
