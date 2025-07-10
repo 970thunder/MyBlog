@@ -13,16 +13,16 @@ hero:
     
     - theme: brand
       text: News 诊断报告
-      link: /src/markdown-examples
+      link: /CCAR/前言
     - theme: brand
-      text: News 诊断报告
-      link: /src/markdown-examples
+      text: 交流记录
+      link: /FRA/前言
+    - theme: alt
+      text: 康复训练
+      link: /HRlog/前言
     - theme: alt
       text: 识海
-      link: /src/api-examples
-    - theme: alt
-      text: 识海
-      link: /src/api-examples
+      link: /MRware/前言
 
 features:
   - icon: 🧠

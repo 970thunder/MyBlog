@@ -18,6 +18,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
             text: '零碎疗养区',
             collapsed: false,
             items: [
+                { text: '前言', link: '/FRA/前言' },
                 { text: 'markdown-examples', link: '/FRA/markdown-examples' },
                 { text: 'api-examples', link: '/FRA/api-examples' },
             ]

@@ -12,6 +12,8 @@
     /* 通用 hero 设置 */
     --vp-home-hero-name-color: transparent;
     --vp-home-hero-image-filter: blur(100px);
+
+
 }
 
 .dark {
@@ -19,11 +21,27 @@
     --vp-c-brand-2: #0a4a7e;
     --vp-c-brand-3: #45659a;
 
+    /* 全局背景色 */
+    --vp-c-bg: #1b1b1f;
+    /* 代码块背景色以及左侧边栏背景色 */
+    --vp-c-bg-alt: #161618;
+    /* 顶部栏多级菜单背景色 */
+    --vp-c-bg-elv: #202127;
+    /* 某些组件与页面稍微区分开的背景颜色 */
+    --vp-c-bg-soft: #202127;
+
+    /* 交互组件边框颜色 */
+    --vp-c-border: #3c3f44;
+    /* 分隔线颜色 */
+    --vp-c-divider: #58799c44;
+    /* 页面中划分组件的边框颜色 */
+    --vp-c-gutter: #146dcd0d;
+
     /* hero标题渐变色 - 夜间模式 */
     --vp-home-hero-name-background: linear-gradient(120deg, #ffffff, #113d7e, #c31414, #6a198f, #000000, #ffffff);
     /* hero logo背景渐变色 - 夜间模式 */
     --vp-home-hero-image-background-image: linear-gradient(-45deg, #ffffff, #41d1ff, #ff6b6b, #bd34fe, #000000, #ffffff);
-    --vp-home-hero-image-filter: blur(100px);
+    --vp-home-hero-image-filter: blur(80px);
 }
 
 /* 以前的vp-c-brand已弃用 */
@@ -75,7 +93,40 @@
     transform: translateY(-5px);
 }
 
-/* .vitepress/theme/style/var.css */
+/* 自定义顶部导航栏字体粗细 */
+/* 通过直接定位到文字元素来覆盖默认样式 */
+.VPNavBarMenu .VPNavBarMenuLink,
+.VPNavBarMenu .VPNavBarMenuGroup .button .text {
+    font-weight: 600;
+    /* 设置为半粗体 */
+
+}
+
+/* 将日夜模式切换按钮改为圆形 (增加特异性) */
+.VPNavBar .appearance .VPSwitchAppearance {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--vp-c-divider);
+}
+
+/* 覆盖内部滑块的样式 (增加特异性) */
+.VPNavBar .appearance .VPSwitchAppearance .check {
+    /* 移除 transform，使其不再左右滑动 */
+    transform: none !important;
+
+    /* 移除滑块的背景和阴影 */
+    background: transparent;
+    box-shadow: none;
+
+    /* 使其在圆形按钮中完全居中 */
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
 
 .rendered-md img {
     max-width: 100%;
@@ -99,4 +150,17 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+
+/* 统一顶部导航栏的垂直对齐和间距 */
+.VPNavBarMenu {
+    align-items: center;
+    /* 强制所有导航项垂直居中对齐 */
+}
+
+.VPNavBarMenu .VPNavBarMenuLink,
+.VPNavBarMenu .VPNavBarMenuGroup .button {
+    padding: 0 5px;
+    /* 只修改左右内边距，避免影响垂直对齐 */
 }
