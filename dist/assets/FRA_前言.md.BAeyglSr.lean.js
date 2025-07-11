@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./chunks/framework.CsqNip8P.js";const l=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"FRA/前言.md","filePath":"FRA/前言.md","lastUpdated":null}'),r={name:"FRA/前言.md"};function o(s,n,c,_,d,p){return a(),t("div")}const m=e(r,[["render",o]]);export{l as __pageData,m as default};
