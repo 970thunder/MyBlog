@@ -4,9 +4,10 @@ import type { DefaultTheme } from 'vitepress'
 export const sidebar: DefaultTheme.Config['sidebar'] = {
     '/HRlog/': [
         {
-            text: '高危日志',
+            text: '高危日志 | 算法',
             collapsed: false,
             items: [
+                { text: '前言', link: '/HRlog/前言' },
                 { text: 'algorithm', link: '/HRlog/algorithm' },
                 { text: '出院', link: '/' }
             ]
@@ -15,7 +16,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
 
     '/FRA/': [
         {
-            text: '零碎疗养区',
+            text: '零碎疗养区 | 八股',
             collapsed: false,
             items: [
                 { text: '前言', link: '/FRA/前言' },
@@ -27,7 +28,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
 
     '/CCAR/': [
         {
-            text: '核心崩溃分析室',
+            text: '核心崩溃分析室 | 运维',
             collapsed: false,
             items: [
                 { text: '前言', link: '/CCAR/前言' },
@@ -38,7 +39,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
 
     '/Broadcasting/': [
         {
-            text: '系统广播',
+            text: '系统广播 | 公告',
             collapsed: false,
             items: [
                 { text: '系统广播', link: '/Broadcasting/系统广播' },
@@ -49,7 +50,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
 
     '/MRware/': [
         {
-            text: '病历仓库',
+            text: '病历仓库 | 博客',
             collapsed: false,
             items: [
                 { text: '前言', link: '/MRware/前言' },
@@ -59,7 +60,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
 
     '/Pward/': [
         {
-            text: '庄生晓梦',
+            text: '庄生晓梦 | 灵感',
             collapsed: false,
             items: [
                 { text: '前言', link: '/Pward/前言' },
@@ -69,7 +70,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
 
     '/SP/': [
         {
-            text: '庄生晓梦',
+            text: '药房重地 | 软件推荐',
             collapsed: false,
             items: [
                 { text: '前言', link: '/SP/前言' },
