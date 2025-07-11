@@ -33,6 +33,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
             items: [
                 { text: '前言', link: '/CCAR/前言' },
                 { text: 'Cloudflare挂载静态网站', link: '/CCAR/Cloudflare挂载静态网站' },
+                { text: 'https协议请求http报错', link: '/CCAR/https协议请求http报错' },
             ]
         }
     ],

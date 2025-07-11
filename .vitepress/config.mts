@@ -209,6 +209,11 @@ export default defineConfig({
 
       })
     },
+
+    image: {
+      // 开启图片懒加载
+      lazyLoading: true
+    },
   },
 
   //启用深色模式
