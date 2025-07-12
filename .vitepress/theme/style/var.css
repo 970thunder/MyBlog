@@ -164,3 +164,21 @@
     /* 只修改左右内边距，避免影响垂直对齐 */
 }
 
+/* 自定义卡片日夜模式变量 */
+:root {
+    --profile-card-bg: rgba(255, 255, 255, 0.92);
+    --profile-card-text: #222;
+    --profile-skill-title: #3a8dff;
+    --profile-skill-bg: transparent;
+    --profile-skill-row-text: #222;
+    --profile-desc-text: #333;
+}
+
+.dark {
+    --profile-card-bg: rgba(30, 30, 32, 0.85);
+    --profile-card-text: #fff;
+    --profile-skill-title: #90caf9;
+    --profile-skill-bg: transparent;
+    --profile-skill-row-text: #e0e0d6;
+    --profile-desc-text: #e0e0e0;
+}
