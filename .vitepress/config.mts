@@ -26,8 +26,8 @@ export default defineConfig({
     // },
 
     docFooter: {
-      prev: "上一页",
-      next: "下一页",
+      prev: "往上看看",
+      next: "往下走走",
     },
 
     // https://vitepress.dev/zh/reference/default-theme-config#outline
