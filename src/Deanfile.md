@@ -4,7 +4,7 @@ layout: page
 
 <div class="custom-profile-card">
   <div class="profile-avatar">
-    <img src="./logo-preview.png" alt="小泥人Hyper" />
+    <img src="./public/logo-preview.png" alt="小泥人Hyper" />
   </div>
   <div class="profile-info">
     <h1 class="profile-name">小泥人Hyper</h1>
@@ -45,6 +45,23 @@ layout: page
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="skill-icon" />
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" alt="Vite" class="skill-icon" />
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg" alt="Electron" class="skill-icon" />
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<div class="partner-section">
+  <h2 class="partner-title">合作伙伴</h2>
+  <div class="partner-subtitle">团队合作伙伴</div>
+  <div class="partner-list">
+    <div class="partner-card">
+      <img class="partner-avatar" src="https://yhyper.dpdns.org/photostore/2025/07/b_1752359156c97a415f20822c6e8bb72a.jpg" alt="薮猫">
+      <div class="partner-name">薮猫</div>
+      <div class="partner-links">
+        <!-- <a href="https://github.com/" target="_blank"><img src="https://yhyper.dpdns.org/photostore/2025/07/github-fill.png" alt="GitHub" /></a> -->
+        <!-- <a href="https://twitter.com/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" alt="Twitter" /></a> -->
+      </div>
     </div>
   </div>
 </div>

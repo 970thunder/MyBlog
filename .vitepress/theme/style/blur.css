@@ -9,7 +9,7 @@
 
     /* 搜索框透明 */
     .DocSearch-Button {
-        background-color: rgba(255, 255, 255, 0);
+        background-color: rgba(63, 62, 62, 0.156);
         backdrop-filter: blur(10px);
     }
 
