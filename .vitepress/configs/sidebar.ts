@@ -39,13 +39,24 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
         }
     ],
 
-    '/Broadcasting/': [
+    '/Broadcasting': [
         {
             text: '系统广播 | 公告',
             collapsed: false,
             items: [
                 { text: '系统广播', link: '/Broadcasting/系统广播' },
                 { text: '样式优化', link: '/Broadcasting/Type' },
+            ]
+        }
+    ],
+
+    '/notes': [
+        {
+            text: '简记 | 随手记录',
+            collapsed: false,
+            items: [
+                { text: '偶尔用到的小技巧', link: '/notes/前言' },
+                { text: 'cron规则', link: '/notes/cron规则' },
             ]
         }
     ],

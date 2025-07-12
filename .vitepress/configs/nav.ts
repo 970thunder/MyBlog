@@ -24,8 +24,8 @@ export const nav: DefaultTheme.Config['nav'] = [
     {
         text: '系统广播',
         items: [
-            { text: '病区广播', link: '/Broadcasting/系统广播' },
-            { text: '院内公告', link: '/Broadcasting/Type' },
+            { text: '院内公告', link: '/Broadcasting/系统广播' },
+            { text: '简记', link: '/notes/前言' },
         ],
     },
     { text: '院长档案', link: '/Deanfile' },
