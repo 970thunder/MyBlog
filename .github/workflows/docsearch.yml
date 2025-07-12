@@ -1,8 +1,9 @@
 name: docsearch
 
 on:
-  schedule:
-    - cron: '16 22 * * *'
+  push:
+    branches:
+      - main
 
 jobs:
   algolia:
