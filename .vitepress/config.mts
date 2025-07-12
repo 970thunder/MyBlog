@@ -46,8 +46,9 @@ export default defineConfig({
 
     // GitHub链接
     socialLinks: [
-      { icon: 'github', 
-        link: 'https://github.com/970thunder' 
+      {
+        icon: 'github',
+        link: 'https://github.com/970thunder'
       },
       {
         icon: {
@@ -63,8 +64,8 @@ export default defineConfig({
     search: {
       provider: 'algolia',
       options: {
-        appId: '9O4D8PVCXZ',
-        apiKey: '38af440967f5a3f50f727bd8ba361049',
+        appId: '160HE7DIP7',
+        apiKey: 'c69dea4704a3ce5e229a7ace14d196bd',
         indexName: 'doc',
         locales: {
           root: {
