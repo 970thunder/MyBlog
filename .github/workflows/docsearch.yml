@@ -2,7 +2,7 @@ name: docsearch
 
 on:
   schedule:
-    - cron: '12 14 * * *'
+    - cron: '16 22 * * *'
 
 jobs:
   algolia:
