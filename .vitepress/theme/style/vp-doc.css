@@ -1,0 +1,13 @@
+.vp-doc .VPTeamMembers {
+    margin-top: 24px;
+}
+
+
+
+.vp-doc .VPTeamMembers.medium.count-1 .container {
+    max-width: 708px !important;
+}
+
+.vp-doc .VPTeamMembersItem {
+    width: 800px !important;
+}

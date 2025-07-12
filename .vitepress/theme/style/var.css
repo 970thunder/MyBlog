@@ -13,7 +13,6 @@
     --vp-home-hero-name-color: transparent;
     --vp-home-hero-image-filter: blur(100px);
 
-
 }
 
 .dark {
@@ -164,3 +163,4 @@
     padding: 0 5px;
     /* 只修改左右内边距，避免影响垂直对齐 */
 }
+

@@ -11,7 +11,7 @@ import {
 
 const coreMembers = [
   {
-    avatar: './public/logo-preview.png',
+    avatar: './logo-preview.png',
     name: '小泥人Hyper',
     // title: '创始人',
     // links: [
