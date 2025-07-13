@@ -67,6 +67,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
             collapsed: false,
             items: [
                 { text: '前言', link: '/MRware/前言' },
+                { text: 'NoneBot搭建QQ机器人', link: '/MRware/nonebot搭建QQ机器人教程' },
             ]
         }
     ],
