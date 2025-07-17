@@ -39,7 +39,22 @@ features:
 ---
 
 <style>
-.VPHero.has-image .image-src {
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.VPHomeHero .image {
+  animation: float 5s ease-in-out infinite;
 }
 </style>
+
+
 
