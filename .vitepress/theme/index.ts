@@ -10,6 +10,7 @@ import MyLayout from './components/MyLayout.vue' // 导入布局组件
 import Mycomponent from "./components/Mycomponent.vue"
 import update from "./components/update.vue"
 import ArticleMetadata from "./components/ArticleMetadata.vue"
+import SiteCards from "./components/SiteCards.vue"
 
 export default {
     extends: DefaultTheme,
@@ -36,15 +37,16 @@ export default {
             },
             //默认值为true，表示已启用，此参数可以忽略；
             //如果为false，则表示未启用
-            //您可以使用“comment:true”序言在页面上单独启用它
+            //您可以使用"comment:true"序言在页面上单独启用它
             true
         );
     },
     enhanceApp({ app, router }) {
         // 注册全局组件
         app.component('Mycomponent', Mycomponent)
-        app.component('update' , update)
+        app.component('update', update)
         app.component('ArticleMetadata', ArticleMetadata)
+        app.component('SiteCards', SiteCards)
         if (inBrowser) {
             router.onAfterRouteChanged = () => {
                 busuanzi.fetch()

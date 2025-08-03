@@ -17,7 +17,8 @@ export const nav: DefaultTheme.Config['nav'] = [
     {
         text: '庄生晓梦',
         items: [
-            { text: 'AI简历', link: 'http://www.hyper99.shop/' },
+            // { text: 'AI简历', link: 'http://www.hyper99.shop/' },
+            { text: '站点云集', link: '/Pward/站点云集' },
             { text: '妄想症病房', link: '/Pward/前言' },
         ]
     },
