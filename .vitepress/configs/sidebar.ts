@@ -71,6 +71,12 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
                 { text: '菜品分类模型的构建', link: '/MRware/分类模型的构建' },
                 { text: '资源预加载', link: '/MRware/资源预加载' },
                 { text: '网站加载速度优化', link: '/MRware/网站提速教程' },
+                { 
+                    text: 'HarmonyOS开发',
+                    items: [
+                        { text: '用户协议首选项', link: '/MRware/用户协议首选项' },
+                    ]
+                },
             ]
         }
     ],
