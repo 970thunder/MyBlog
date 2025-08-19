@@ -74,7 +74,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
                 { 
                     text: 'HarmonyOS开发',
                     items: [
-                        { text: '用户协议首选项', link: '/MRware/用户协议首选项' },
+                        { text: '用户协议首选项', link: '/MRware/HarmonyOS/用户协议首选项' },
+                        { text: '关系型数据库', link: '/MRware/HarmonyOS/关系型数据库示例' },
                     ]
                 },
             ]
