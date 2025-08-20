@@ -88,6 +88,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
             collapsed: false,
             items: [
                 { text: '前言', link: '/Pward/前言' },
+                { text: '站点云集', link: '/Pward/站点云集' },
             ]
         }
     ],
