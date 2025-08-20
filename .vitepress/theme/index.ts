@@ -11,6 +11,7 @@ import Mycomponent from "./components/Mycomponent.vue"
 import update from "./components/update.vue"
 import ArticleMetadata from "./components/ArticleMetadata.vue"
 import SiteCards from "./components/SiteCards.vue"
+import GithubCards from "./components/GithubCards.vue"
 
 export default {
     extends: DefaultTheme,
@@ -47,6 +48,7 @@ export default {
         app.component('update', update)
         app.component('ArticleMetadata', ArticleMetadata)
         app.component('SiteCards', SiteCards)
+        app.component('GithubCards', GithubCards)
         if (inBrowser) {
             router.onAfterRouteChanged = () => {
                 busuanzi.fetch()

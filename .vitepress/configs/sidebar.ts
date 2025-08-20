@@ -57,6 +57,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
             items: [
                 { text: '偶尔用到的小技巧', link: '/notes/前言' },
                 { text: 'cron规则', link: '/notes/cron规则' },
+                { text: 'github提交规范', link: '/notes/github提交规范' },
             ]
         }
     ],
@@ -87,8 +88,15 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
             text: '庄生晓梦 | 灵感',
             collapsed: false,
             items: [
-                { text: '前言', link: '/Pward/前言' },
+                {
+                    text: '随时蹦出来的想法',
+                    collapsed: false,
+                    items: [
+                        { text: '前言', link: '/Pward/前言' },
+                    ]
+                },
                 { text: '站点云集', link: '/Pward/站点云集' },
+                { text: 'Github军火库', link: '/Pward/Github军火库' },
             ]
         }
     ],
