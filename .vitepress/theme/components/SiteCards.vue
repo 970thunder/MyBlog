@@ -91,7 +91,7 @@ const handleImageError = (event) => {
 
 .collection-subtitle {
     text-align: center;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--site-card-text-secondary);
     font-size: 1.2rem;
     margin-bottom: 3rem;
 }
@@ -129,26 +129,21 @@ const handleImageError = (event) => {
 
 .site-card-inner {
     position: relative;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--site-card-bg);
     backdrop-filter: blur(20px);
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--site-card-border);
+    box-shadow: var(--site-shadow-outer), var(--site-shadow-inner);
     transition: all 0.3s ease;
     height: 140px;
     padding: 20px;
 }
 
 .site-tech-card:hover .site-card-inner {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(0, 212, 255, 0.3);
-    box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(0, 212, 255, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: var(--site-card-bg-hover);
+    border-color: var(--site-card-border-hover);
+    box-shadow: var(--site-shadow-outer-hover), 0 0 30px rgba(var(--site-accent-rgb), var(--site-accent-glow-alpha)), var(--site-shadow-inner);
 }
 
 .site-card-header {
@@ -164,7 +159,7 @@ const handleImageError = (event) => {
     height: 48px;
     border-radius: 12px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--site-card-thumb-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -189,14 +184,14 @@ const handleImageError = (event) => {
 .site-name {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--site-card-text-primary);
     margin: 0;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     line-height: 1.2;
 }
 
 .site-description {
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--site-card-text-secondary);
     line-height: 1.4;
     margin: 0;
     font-size: 0.9rem;
@@ -214,7 +209,7 @@ const handleImageError = (event) => {
     bottom: 0;
     border-radius: 16px;
     padding: 1px;
-    background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+    background: linear-gradient(45deg, transparent, rgba(var(--site-accent-rgb), var(--site-accent-border-alpha)), transparent);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     opacity: 0;
@@ -231,7 +226,7 @@ const handleImageError = (event) => {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(var(--site-accent-rgb), var(--site-accent-glow-alpha)) 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -293,11 +288,11 @@ const handleImageError = (event) => {
 /* 深色模式优化 */
 @media (prefers-color-scheme: dark) {
     .site-card-inner {
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--site-card-bg);
     }
 
     .site-tech-card:hover .site-card-inner {
-        background: rgba(255, 255, 255, 0.06);
+        background: var(--site-card-bg-hover);
     }
 }
 

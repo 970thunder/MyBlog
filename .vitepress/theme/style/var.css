@@ -172,6 +172,20 @@
     --profile-skill-bg: transparent;
     --profile-skill-row-text: #222;
     --profile-desc-text: #333;
+    /* SiteCards variables - Light */
+    --site-card-bg: rgba(0, 0, 0, 0.03);
+    --site-card-bg-hover: rgba(0, 0, 0, 0.05);
+    --site-card-border: rgba(0, 0, 0, 0.06);
+    --site-card-border-hover: rgba(0, 0, 0, 0.15);
+    --site-card-text-primary: #111111;
+    --site-card-text-secondary: rgba(0, 0, 0, 0.65);
+    --site-card-thumb-bg: rgba(0, 0, 0, 0.06);
+    --site-shadow-outer: 0 4px 20px rgba(0, 0, 0, 0.12);
+    --site-shadow-outer-hover: 0 12px 40px rgba(0, 0, 0, 0.18);
+    --site-shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    --site-accent-rgb: 0, 212, 255;
+    --site-accent-border-alpha: 0.25;
+    --site-accent-glow-alpha: 0.16;
 }
 
 .dark {
@@ -181,4 +195,18 @@
     --profile-skill-bg: transparent;
     --profile-skill-row-text: #e0e0d6;
     --profile-desc-text: #e0e0e0;
+    /* SiteCards variables - Dark */
+    --site-card-bg: rgba(255, 255, 255, 0.05);
+    --site-card-bg-hover: rgba(255, 255, 255, 0.08);
+    --site-card-border: rgba(255, 255, 255, 0.10);
+    --site-card-border-hover: rgba(0, 212, 255, 0.30);
+    --site-card-text-primary: #ffffff;
+    --site-card-text-secondary: rgba(255, 255, 255, 0.75);
+    --site-card-thumb-bg: rgba(255, 255, 255, 0.10);
+    --site-shadow-outer: 0 4px 20px rgba(0, 0, 0, 0.30);
+    --site-shadow-outer-hover: 0 12px 40px rgba(0, 0, 0, 0.40);
+    --site-shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    --site-accent-rgb: 0, 212, 255;
+    --site-accent-border-alpha: 0.30;
+    --site-accent-glow-alpha: 0.20;
 }
