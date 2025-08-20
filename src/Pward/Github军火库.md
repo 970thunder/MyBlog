@@ -2,5 +2,8 @@
 layout: page
 ---
 
-<GithubCards />
+<GithubCards :repos="[
+  '970thunder/AIResume',
+  'Tsundeer/MeowField_AutoPiano'
+]" />
 
