@@ -80,30 +80,9 @@ const props = withDefaults(defineProps<{
 
 // 从环境变量获取 GitHub Token
 const getGitHubToken = (): string | undefined => {
-    // @ts-ignore: Vite 环境变量类型
-    const token = import.meta?.env?.VITE_GITHUB_TOKEN
-
-    // 备用方案：尝试从其他方式获取
-    if (!token) {
-        // 尝试从 process.env 获取（Node.js 环境）
-        if (typeof process !== 'undefined' && process.env) {
-            const processToken = process.env.VITE_GITHUB_TOKEN
-            if (processToken) {
-                return processToken
-            }
-        }
-
-        // 尝试从 window 对象获取（浏览器环境）
-        if (typeof window !== 'undefined' && (window as any).__GITHUB_TOKEN__) {
-            return (window as any).__GITHUB_TOKEN__
-        }
-    }
-
-    // 如果所有方法都失败，返回 undefined 让组件使用未认证的 API
-    if (!token) {
-    }
-
-    return token
+    // Cloudflare Pages 环境变量
+    // 在 Cloudflare Pages 设置中配置 GITHUB_TOKEN 环境变量
+    return (import.meta as any).env?.GITHUB_TOKEN
 }
 
 const loading = ref(false)
