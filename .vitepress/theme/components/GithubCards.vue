@@ -72,12 +72,17 @@ interface RepoInput {
 
 const props = withDefaults(defineProps<{
     repos?: (string | RepoInput | Repo)[]
-    token?: string
     autoFetch?: boolean
 }>(), {
     repos: () => [],
     autoFetch: true
 })
+
+// 从环境变量获取 GitHub Token
+const getGitHubToken = (): string | undefined => {
+    // @ts-ignore: Vite 环境变量类型
+    return import.meta?.env?.VITE_GITHUB_TOKEN
+}
 
 const loading = ref(false)
 const error = ref('')
@@ -160,8 +165,9 @@ const fetchRepoData = async (repoInput: RepoInput): Promise<GitHubRepo | null> =
             'Accept': 'application/vnd.github.v3+json'
         }
 
-        if (props.token) {
-            headers['Authorization'] = `token ${props.token}`
+        const token = getGitHubToken()
+        if (token) {
+            headers['Authorization'] = `token ${token}`
         }
 
         const response = await fetch(`https://api.github.com/repos/${repoInput.owner}/${repoInput.repo}`, {
