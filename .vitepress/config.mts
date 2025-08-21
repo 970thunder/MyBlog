@@ -218,7 +218,7 @@ export default defineConfig({
   },
 
   //启用深色模式
-  appearance:'dark',
+  appearance: 'dark',
 
   vite: {
     resolve: {
@@ -230,7 +230,7 @@ export default defineConfig({
         disableF12: true, // 禁用F12开发者模式
         disableCopy: true, // 禁用文本复制
         disableSelect: true, // 禁用文本选择
-      }),
+      }),      
     ],
   },
 })

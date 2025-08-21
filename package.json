@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "busuanzi.pure.js": "^1.0.3",
+    "nprogress-v2": "^1.1.10",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-group-icons": "^1.6.1",
     "vitepress-protect-plugin": "^1.0.6",

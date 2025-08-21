@@ -2,3 +2,13 @@
 !.gitignore
 
 /node_modules
+/dist
+/public
+/docs
+/docs/.vitepress
+/docs/.vitepress/cache
+/docs/.vitepress/cache/
+
+.env
+.env.local
+.env.*.local

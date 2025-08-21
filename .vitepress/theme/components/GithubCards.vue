@@ -80,9 +80,34 @@ const props = withDefaults(defineProps<{
 
 // 从环境变量获取 GitHub Token
 const getGitHubToken = (): string | undefined => {
-    // Cloudflare Pages 环境变量
-    // 在 Cloudflare Pages 设置中配置 GITHUB_TOKEN 环境变量
-    return (import.meta as any).env?.GITHUB_TOKEN
+    try {
+        // 1. Vite 环境变量 (开发环境和构建时)
+        // 使用 any 类型避免 TypeScript 类型错误
+        const metaEnv = (import.meta as any).env
+        if (metaEnv?.VITE_GITHUB_TOKEN) {
+            return metaEnv.VITE_GITHUB_TOKEN
+        }
+
+        if (metaEnv?.GITHUB_TOKEN) {
+            return metaEnv.GITHUB_TOKEN
+        }
+
+        // 2. 运行时环境变量 (如果在 Node.js 环境中)
+        if (typeof process !== 'undefined' && process.env?.GITHUB_TOKEN) {
+            return process.env.GITHUB_TOKEN
+        }
+
+        // 3. 尝试从 window 对象获取 (如果通过其他方式注入)
+        if (typeof window !== 'undefined' && (window as any).GITHUB_TOKEN) {
+            return (window as any).GITHUB_TOKEN
+        }
+
+    } catch (err) {
+        console.warn('获取环境变量时出错:', err)
+    }
+
+    console.warn('GitHub Token 未找到，请检查环境变量配置。支持的环境变量名：VITE_GITHUB_TOKEN, GITHUB_TOKEN')
+    return undefined
 }
 
 const loading = ref(false)
@@ -168,7 +193,17 @@ const fetchRepoData = async (repoInput: RepoInput): Promise<GitHubRepo | null> =
 
         const token = getGitHubToken()
         if (token) {
-            headers['Authorization'] = `token ${token}`
+            // 支持两种 GitHub token 格式
+            // 1. Personal Access Token (classic): token ghp_xxxx
+            // 2. Fine-grained personal access token: Bearer github_pat_xxxx
+            if (token.startsWith('github_pat_')) {
+                headers['Authorization'] = `Bearer ${token}`
+            } else {
+                headers['Authorization'] = `token ${token}`
+            }
+            console.log('使用 GitHub Token 进行 API 调用')
+        } else {
+            console.warn('未配置 GitHub Token，可能会遇到 API 限流问题')
         }
 
         const response = await fetch(`https://api.github.com/repos/${repoInput.owner}/${repoInput.repo}`, {
@@ -179,19 +214,22 @@ const fetchRepoData = async (repoInput: RepoInput): Promise<GitHubRepo | null> =
 
         if (!response.ok) {
             if (response.status === 404) {
-                throw new Error(`仓库 ${repoInput.owner}/${repoInput.repo} 不存在`)
+                throw new Error(`仓库 ${repoInput.owner}/${repoInput.repo} 不存在或无权访问`)
             }
             if (response.status === 403) {
                 const errorText = await response.text()
                 // 检查是否是限流问题
                 if (errorText.includes('rate limit') || errorText.includes('API rate limit')) {
-                    throw new Error('GitHub API 请求频率超限，请稍后重试')
+                    throw new Error('GitHub API 请求频率超限，请稍后重试或配置 GitHub Token')
                 } else {
-                    throw new Error('API 访问被拒绝，请检查 Token 权限')
+                    throw new Error('API 访问被拒绝，请检查 Token 权限或仓库访问权限')
                 }
             }
+            if (response.status === 401) {
+                throw new Error('GitHub Token 无效或已过期，请检查 Token 配置')
+            }
             const errorText = await response.text()
-            throw new Error(`获取仓库信息失败: ${response.status}`)
+            throw new Error(`获取仓库信息失败: ${response.status} - ${response.statusText}`)
         }
 
         const data = await response.json()
@@ -339,6 +377,8 @@ onMounted(() => {
 
 /* 卡片 */
 .gh-card {
+    margin-left: 15px;
+    margin-right: 15px;
     position: relative;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
