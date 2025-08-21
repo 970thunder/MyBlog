@@ -82,34 +82,25 @@ const props = withDefaults(defineProps<{
 const getGitHubToken = (): string | undefined => {
     // @ts-ignore: Vite 环境变量类型
     const token = import.meta?.env?.VITE_GITHUB_TOKEN
-    console.log('🔍 Debug - Environment variables:', {
-        importMeta: import.meta,
-        env: (import.meta as any)?.env,
-        token: token ? '***' + token.slice(-4) : 'undefined'
-    })
 
     // 备用方案：尝试从其他方式获取
     if (!token) {
-        console.log('🔍 Debug - Token not found in import.meta.env, trying alternatives...')
         // 尝试从 process.env 获取（Node.js 环境）
         if (typeof process !== 'undefined' && process.env) {
             const processToken = process.env.VITE_GITHUB_TOKEN
             if (processToken) {
-                console.log('🔍 Debug - Found token in process.env')
                 return processToken
             }
         }
 
         // 尝试从 window 对象获取（浏览器环境）
         if (typeof window !== 'undefined' && (window as any).__GITHUB_TOKEN__) {
-            console.log('🔍 Debug - Found token in window.__GITHUB_TOKEN__')
             return (window as any).__GITHUB_TOKEN__
         }
     }
 
     // 如果所有方法都失败，返回 undefined 让组件使用未认证的 API
     if (!token) {
-        console.log('🔍 Debug - No token available, will use unauthenticated API (limited to 60 requests/hour)')
     }
 
     return token
@@ -197,14 +188,9 @@ const fetchRepoData = async (repoInput: RepoInput): Promise<GitHubRepo | null> =
         }
 
         const token = getGitHubToken()
-        console.log('🔍 Debug - Fetching repo:', repoInput, 'Token available:', !!token)
         if (token) {
             headers['Authorization'] = `token ${token}`
-            console.log('🔍 Debug - Authorization header set:', `token ***${token.slice(-4)}`)
         }
-
-        console.log('🔍 Debug - Request headers:', headers)
-        console.log('🔍 Debug - Request URL:', `https://api.github.com/repos/${repoInput.owner}/${repoInput.repo}`)
 
         const response = await fetch(`https://api.github.com/repos/${repoInput.owner}/${repoInput.repo}`, {
             headers,
@@ -212,16 +198,12 @@ const fetchRepoData = async (repoInput: RepoInput): Promise<GitHubRepo | null> =
             credentials: 'omit'
         })
 
-        console.log('🔍 Debug - Response status:', response.status, response.statusText)
-        console.log('🔍 Debug - Response headers:', Object.fromEntries(response.headers.entries()))
-
         if (!response.ok) {
             if (response.status === 404) {
                 throw new Error(`仓库 ${repoInput.owner}/${repoInput.repo} 不存在`)
             }
             if (response.status === 403) {
                 const errorText = await response.text()
-                console.log('🔍 Debug - 403 Error response:', errorText)
                 // 检查是否是限流问题
                 if (errorText.includes('rate limit') || errorText.includes('API rate limit')) {
                     throw new Error('GitHub API 请求频率超限，请稍后重试')
@@ -230,12 +212,10 @@ const fetchRepoData = async (repoInput: RepoInput): Promise<GitHubRepo | null> =
                 }
             }
             const errorText = await response.text()
-            console.log('🔍 Debug - Error response:', errorText)
             throw new Error(`获取仓库信息失败: ${response.status}`)
         }
 
         const data = await response.json()
-        console.log('🔍 Debug - Success response:', data.name, data.stargazers_count)
         return data
     } catch (err) {
         console.error(`获取仓库 ${repoInput.owner}/${repoInput.repo} 失败:`, err)
@@ -302,53 +282,7 @@ const retryFetch = () => {
 // 监听 props 变化
 watch(() => props.repos, loadRepos, { immediate: true })
 
-// 测试环境变量加载
-const testEnvironmentVariables = () => {
-    console.log('🔍 Debug - Testing environment variables...')
-    console.log('🔍 Debug - import.meta:', import.meta)
-    console.log('🔍 Debug - import.meta.env:', (import.meta as any)?.env)
-    console.log('🔍 Debug - VITE_GITHUB_TOKEN:', (import.meta as any)?.env?.VITE_GITHUB_TOKEN)
-    console.log('🔍 Debug - All env vars:', Object.keys((import.meta as any)?.env || {}))
-
-    // 测试 process.env
-    console.log('🔍 Debug - process.env.VITE_GITHUB_TOKEN:', process.env?.VITE_GITHUB_TOKEN)
-
-    // 测试全局变量
-    console.log('🔍 Debug - globalThis.VITE_GITHUB_TOKEN:', (globalThis as any)?.VITE_GITHUB_TOKEN)
-}
-
-// 测试 Token 有效性
-const testTokenValidity = async () => {
-    const token = getGitHubToken()
-    if (!token) {
-        console.log('🔍 Debug - No token available for testing')
-        return
-    }
-
-    console.log('🔍 Debug - Testing token validity...')
-    try {
-        const response = await fetch('https://api.github.com/user', {
-            headers: {
-                'Authorization': `token ${token}`,
-                'Accept': 'application/vnd.github.v3+json'
-            }
-        })
-
-        console.log('🔍 Debug - Token test response status:', response.status)
-        if (response.ok) {
-            const userData = await response.json()
-            console.log('🔍 Debug - Token is valid, authenticated as:', userData.login)
-        } else {
-            console.log('🔍 Debug - Token test failed:', response.status, response.statusText)
-        }
-    } catch (err) {
-        console.error('🔍 Debug - Token test error:', err)
-    }
-}
-
 onMounted(() => {
-    testEnvironmentVariables()
-    testTokenValidity()
     if (props.autoFetch) {
         loadRepos()
     }
