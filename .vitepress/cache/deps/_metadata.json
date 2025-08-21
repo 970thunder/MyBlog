@@ -2,57 +2,48 @@
   "hash": "978cc7d7",
   "configHash": "c21d8a1a",
   "lockfileHash": "5dcd5164",
-  "browserHash": "68234cee",
+  "browserHash": "0eb8b60a",
   "optimized": {
     "vue": {
       "src": "../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "19deed22",
+      "fileHash": "e6524983",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "974a9dd8",
+      "fileHash": "efeca194",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "bad8749f",
+      "fileHash": "e120258f",
       "needsInterop": false
     },
     "vitepress-plugin-comment-with-giscus": {
       "src": "../../../node_modules/vitepress-plugin-comment-with-giscus/lib/giscus.js",
       "file": "vitepress-plugin-comment-with-giscus.js",
-      "fileHash": "f47e9eeb",
+      "fileHash": "73d1dc91",
       "needsInterop": false
     },
     "busuanzi.pure.js": {
       "src": "../../../node_modules/busuanzi.pure.js/index.js",
       "file": "busuanzi__pure__js.js",
-      "fileHash": "705e9080",
+      "fileHash": "f1c77e22",
       "needsInterop": true
-    },
-    "vue/dist/vue.esm-bundler.js": {
-      "src": "../../../node_modules/vue/dist/vue.esm-bundler.js",
-      "file": "vue_dist_vue__esm-bundler__js.js",
-      "fileHash": "83f9c690",
-      "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-ZX7CATVZ": {
-      "file": "chunk-ZX7CATVZ.js"
+    "chunk-W6V53FDX": {
+      "file": "chunk-W6V53FDX.js"
     },
-    "chunk-RYWLVHNV": {
-      "file": "chunk-RYWLVHNV.js"
+    "giscus-aTimukGI-REJE62UG": {
+      "file": "giscus-aTimukGI-REJE62UG.js"
     },
-    "giscus-aTimukGI-ECML4VQV": {
-      "file": "giscus-aTimukGI-ECML4VQV.js"
-    },
-    "chunk-HKJ2B2AA": {
-      "file": "chunk-HKJ2B2AA.js"
+    "chunk-BUSYA2B4": {
+      "file": "chunk-BUSYA2B4.js"
     }
   }
 }

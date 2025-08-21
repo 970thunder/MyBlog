@@ -4,6 +4,7 @@ layout: page
 
 <GithubCards :repos="[
   '970thunder/AIResume',
-  'Tsundeer/MeowField_AutoPiano'
+  'Tsundeer/MeowField_AutoPiano',
+  '970thunder/HyperBot'
 ]" />
 
