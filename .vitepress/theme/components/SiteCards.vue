@@ -51,6 +51,13 @@ const websites = ref([
         description: '多节点的宽带测速网站，可以来看看你家网速能不能跑过高铁😋',
         url: 'https://speedtest.hyper99.shop',
         thumbnail: '/speedtest.svg'
+    },
+    {
+        id: 3,
+        name: '二维码生成器',
+        description: '快速生成文本、链接、文件二维码，支持自定义样式，提供安全的文件下载功能😎',
+        url: 'https://qrcodes.hyper99.shop/',
+        thumbnail: '/logo-qrcode.svg'
     }
 ])
 

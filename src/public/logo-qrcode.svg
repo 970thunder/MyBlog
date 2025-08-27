@@ -1,0 +1,35 @@
+<!-- QR Generator - Minimal Blue Icon -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 64 64" role="img" aria-label="QR Code Generator Icon">
+  <!-- 背板（可去掉） -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#E9F2FF"/>
+  <!-- 外框 -->
+  <rect x="4.5" y="4.5" width="55" height="55" rx="12" fill="none" stroke="#1E40AF" stroke-width="3"/>
+
+  <!-- 三个定位点（左上/右上/左下） -->
+  <g fill="none" stroke="#2563EB" stroke-width="3">
+    <rect x="10" y="10" width="14" height="14" rx="2"/>
+    <rect x="40" y="10" width="14" height="14" rx="2"/>
+    <rect x="10" y="40" width="14" height="14" rx="2"/>
+  </g>
+  <g fill="#2563EB">
+    <rect x="13" y="13" width="8" height="8" rx="1.5"/>
+    <rect x="43" y="13" width="8" height="8" rx="1.5"/>
+    <rect x="13" y="43" width="8" height="8" rx="1.5"/>
+  </g>
+
+  <!-- 中部点阵（简化的二维码感） -->
+  <g fill="#1D4ED8">
+    <rect x="30" y="24" width="3" height="3" rx="1"/>
+    <rect x="26" y="28" width="3" height="3" rx="1"/>
+    <rect x="34" y="28" width="3" height="3" rx="1"/>
+    <rect x="22" y="32" width="3" height="3" rx="1"/>
+    <rect x="30" y="32" width="3" height="3" rx="1"/>
+    <rect x="38" y="32" width="3" height="3" rx="1"/>
+    <rect x="26" y="36" width="3" height="3" rx="1"/>
+    <rect x="34" y="36" width="3" height="3" rx="1"/>
+    <rect x="30" y="40" width="3" height="3" rx="1"/>
+  </g>
+
+  <!-- “生成/闪光”点，象征生成动作 -->
+  <circle cx="48" cy="45" r="2.2" fill="#3B82F6"/>
+</svg>

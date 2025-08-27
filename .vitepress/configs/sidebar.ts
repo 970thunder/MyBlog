@@ -57,7 +57,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
             items: [
                 { text: '📑偶尔用到的小技巧', link: '/notes/前言' },
                 { text: '📑cron规则', link: '/notes/cron规则' },
-                { text: '📑github提交规范', link: '/notes/github提交规范' },
+                { text: '📑github提交规范', link: '/notes/Github提交规范' },
             ]
         }
     ],
