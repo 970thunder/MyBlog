@@ -40,10 +40,10 @@ const websites = ref([
     },
     {
         id: 2,
-        name: '小番茄',
-        description: '一个简单的番茄钟小应用',
-        url: 'https://tomato.hyper99.shop',
-        thumbnail: '/tomato.svg'
+        name: '免费二级域名',
+        description: '各种二级域名，可以自行申请自己喜欢的域名前缀 嘿嘿~',
+        url: 'https://freedns.hyper99.shop/',
+        thumbnail: '/freedns.png'
     },
     {
         id: 3,
@@ -53,11 +53,18 @@ const websites = ref([
         thumbnail: '/speedtest.svg'
     },
     {
-        id: 3,
+        id: 4,
         name: '二维码生成器',
         description: '快速生成文本、链接、文件二维码，支持自定义样式，提供安全的文件下载功能😎',
         url: 'https://qrcodes.hyper99.shop/',
         thumbnail: '/logo-qrcode.svg'
+    },
+    {
+        id: 5,
+        name: '小番茄',
+        description: '一个简单的番茄钟小应用',
+        url: 'https://tomato.hyper99.shop',
+        thumbnail: '/tomato.svg'
     }
 ])
 
