@@ -92,7 +92,9 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
                     text: '📂随时蹦出来的想法',
                     collapsed: false,
                     items: [
-                        { text: '📑前言', link: '/Pward/前言' },
+                        { text: '📑稀奇古怪的想法', link: '/Pward/前言' },
+                        { text: '📑搭建二级域名网站', link: '/Pward/搭建DNS域名服务网站' },
+                        { text: '📑前端的代码仓库', link: '/Pward/前端的代码仓库' },
                     ]
                 },
                 { text: '🌐 站点云集', link: '/Pward/站点云集' },
