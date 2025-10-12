@@ -1,5 +1,7 @@
 ## 样式优化
 
+网站参考：https://vitepress.yiov.top/
+
 ```
 . 📂 .vitepress
 └── 📂 configs/

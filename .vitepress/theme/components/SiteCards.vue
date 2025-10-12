@@ -40,7 +40,7 @@ const websites = ref([
     },
     {
         id: 2,
-        name: '免费二级域名',
+        name: 'HyFreeDom',
         description: '各种二级域名，可以自行申请自己喜欢的域名前缀 嘿嘿~',
         url: 'https://freedns.hyper99.shop/',
         thumbnail: '/freedns.png'

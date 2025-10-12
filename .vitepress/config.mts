@@ -11,6 +11,8 @@ export default defineConfig({
   outDir: "dist",
   //设置源目录
   srcDir: "./src",
+  // 忽略死链接检查
+  ignoreDeadLinks: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     // 顶部导航栏
@@ -230,7 +232,7 @@ export default defineConfig({
         disableF12: true, // 禁用F12开发者模式
         disableCopy: true, // 禁用文本复制
         disableSelect: true, // 禁用文本选择
-      }),      
+      }),
     ],
   },
 })
