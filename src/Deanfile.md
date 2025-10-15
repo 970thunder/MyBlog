@@ -56,11 +56,18 @@ layout: page
   <div class="partner-subtitle">团队合作伙伴</div>
   <div class="partner-list">
     <div class="partner-card">
-      <img class="partner-avatar" src="https://yhyper.dpdns.org/photostore/2025/07/b_1752359156c97a415f20822c6e8bb72a.jpg" alt="薮猫">
+      <img class="partner-avatar" src="https://avatars.githubusercontent.com/u/164118193?v=4" alt="薮猫">
       <div class="partner-name">薮猫</div>
       <div class="partner-links">
         <a href="https://github.com/Tsundeer" target="_blank"><img src="https://yhyper.dpdns.org/photostore/2025/07/github-fill.png" alt="GitHub" /></a>
         <!-- <a href="https://twitter.com/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" alt="Twitter" /></a> -->
+      </div>
+    </div>
+    <div class="partner-card">
+      <img class="partner-avatar" src="https://avatars.githubusercontent.com/u/148367665?v=4" alt="薮猫">
+      <div class="partner-name">CoteNite</div>
+      <div class="partner-links">
+        <a href="https://github.com/CoteNite" target="_blank"><img src="https://yhyper.dpdns.org/photostore/2025/07/github-fill.png" alt="GitHub" /></a>
       </div>
     </div>
   </div>
