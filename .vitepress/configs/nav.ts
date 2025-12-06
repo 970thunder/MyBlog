@@ -6,7 +6,7 @@ export const nav: DefaultTheme.Config['nav'] = [
     { text: '核心崩溃分析室', link: '/CCAR/前言' },
     { text: '病历仓库', link: '/MRware/前言' },
     { text: '高危日志', link: '/HRlog/前言' },
-    { text: '零碎疗养区', link: '/FRA/markdown-examples' },
+    { text: '零碎疗养区', link: '/FRA/前言' },
     {
         text: 'software药房', 
         items: [

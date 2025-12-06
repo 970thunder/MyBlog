@@ -47,20 +47,27 @@ const websites = ref([
     },
     {
         id: 3,
+        name: 'HyperUI组件库',
+        description: '免费开源前端组件库社区，在这里可以尽情天马行空，寻找/创造炫酷美观的UI',
+        url: 'https://ui.hyper99.top',
+        thumbnail: '/hyperui.ico'
+    },
+    {
+        id: 4,
         name: '智能测速网',
         description: '多节点的宽带测速网站，可以来看看你家网速能不能跑过高铁😋',
         url: 'https://speedtest.hyper99.shop',
         thumbnail: '/speedtest.svg'
     },
     {
-        id: 4,
+        id: 5,
         name: '二维码生成器',
         description: '快速生成文本、链接、文件二维码，支持自定义样式，提供安全的文件下载功能😎',
         url: 'https://qrcodes.hyper99.shop/',
         thumbnail: '/logo-qrcode.svg'
     },
     {
-        id: 5,
+        id: 6,
         name: '小番茄',
         description: '一个简单的番茄钟小应用',
         url: 'https://tomato.hyper99.shop',
