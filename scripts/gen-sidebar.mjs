@@ -15,6 +15,16 @@ const groupLabels = {
   SP: '📂药房重地 | 软件推荐'
 }
 
+const subGroupTextMap = {
+  MRware: {
+    HarmonyOS: '📂HarmonyOS开发'
+  }
+  ,
+  notes: {
+    date: '📂漂泊旅记 | 记录'
+  }
+}
+
 const prefixOverrides = {
   Broadcasting: '/Broadcasting',
   notes: '/notes'
@@ -28,42 +38,122 @@ function getMdFiles(dir) {
   return getDirEntries(dir).filter(d => d.isFile() && d.name.toLowerCase().endsWith('.md'))
 }
 
-function sortItems(items) {
-  return items.sort((a, b) => {
-    const aIsPreface = a.text.includes('前言')
-    const bIsPreface = b.text.includes('前言')
-    if (aIsPreface && !bIsPreface) return -1
-    if (!aIsPreface && bIsPreface) return 1
-    return a.text.localeCompare(b.text, 'zh')
-  })
-}
-
-function buildItemsForDir(category, dir, baseParts) {
-  const files = getMdFiles(dir).map(d => {
-    const nameWithoutExt = d.name.replace(/\.md$/i, '')
-    const link = `/${[category, ...baseParts, nameWithoutExt].join('/')}`
-    return { text: `📑${nameWithoutExt}`, link }
-  })
-  const subDirs = getDirEntries(dir).filter(d => d.isDirectory())
-  const subGroups = subDirs.map(sd => {
-    const subDirPath = path.join(dir, sd.name)
-    const items = buildItemsForDir(category, subDirPath, [...baseParts, sd.name])
-    return { text: `📂${sd.name}`, items }
-  })
-  return [...sortItems(files), ...subGroups.sort((a, b) => a.text.localeCompare(b.text, 'zh'))]
-}
-
-function buildSidebar() {
-  const entries = getDirEntries(SRC_DIR).filter(d => d.isDirectory() && d.name !== 'public')
-  const result = {}
-  for (const entry of entries) {
-    const category = entry.name
-    const prefix = prefixOverrides[category] ?? `/${category}/`
-    const groupText = groupLabels[category] ?? `📂${category}`
-    const items = buildItemsForDir(category, path.join(SRC_DIR, category), [])
-    result[prefix] = [{ text: groupText, collapsed: false, items }]
+function flattenLinks(items) {
+  const acc = []
+  for (const it of items) {
+    if (it.link) acc.push(it.link)
+    if (it.items) acc.push(...flattenLinks(it.items))
   }
-  return result
+  return acc
+}
+
+function fileLink(category, parts, filename) {
+  const nameWithoutExt = filename.replace(/\.md$/i, '')
+  const prefix = prefixOverrides[category] ?? `/${category}/`
+  const base = prefix.endsWith('/') ? prefix : prefix + '/'
+  const link = `${base}${[...parts, nameWithoutExt].join('/')}`
+  return { text: `📑${nameWithoutExt}`, link }
+}
+
+function parseExistingSidebar() {
+  const content = fs.readFileSync(OUTPUT_FILE, 'utf-8')
+  const match = content.match(/export const sidebar: DefaultTheme\.Config\['sidebar'\] =\s*(\{[\s\S]*\})/)
+  if (!match) throw new Error('未找到现有 sidebar 导出')
+  const objLiteral = match[1]
+  const existing = Function(`return (${objLiteral})`)()
+  return existing
+}
+
+function ensureCategoryGroup(sidebarObj, category) {
+  const prefix = prefixOverrides[category] ?? `/${category}/`
+  if (!sidebarObj[prefix]) {
+    sidebarObj[prefix] = [{ text: groupLabels[category] ?? `📂${category}`, collapsed: false, items: [] }]
+  }
+  return { prefix, groupArr: sidebarObj[prefix] }
+}
+
+function findOrCreateSubGroup(groupArr, category, subdir) {
+  const targetText = subGroupTextMap[category]?.[subdir] ?? `📂${subdir}`
+  let group = (groupArr[0].items || []).find(g => g.text === targetText)
+  if (!group) {
+    if (!groupArr[0].items) groupArr[0].items = []
+    group = { text: targetText, items: [] }
+    groupArr[0].items.push(group)
+  }
+  return group
+}
+
+function findOrCreateTopLevelGroup(groupArr, targetText) {
+  let group = groupArr.find(g => g.text === targetText)
+  if (!group) {
+    group = { text: targetText, collapsed: false, items: [] }
+    groupArr.push(group)
+  }
+  if (!group.items) group.items = []
+  return group
+}
+
+function mergeNewItems(sidebarObj) {
+  const categories = getDirEntries(SRC_DIR).filter(d => d.isDirectory() && d.name !== 'public')
+  for (const cat of categories) {
+    const category = cat.name
+    const { groupArr } = ensureCategoryGroup(sidebarObj, category)
+    const existingLinks = new Set(flattenLinks(groupArr))
+
+    const catDir = path.join(SRC_DIR, category)
+
+    for (const f of getMdFiles(catDir)) {
+      const item = fileLink(category, [], f.name)
+      if (!existingLinks.has(item.link)) {
+        if (!groupArr[0].items) groupArr[0].items = []
+        groupArr[0].items.push(item)
+      }
+    }
+
+    for (const sd of getDirEntries(catDir).filter(d => d.isDirectory())) {
+      const subdir = sd.name
+      const subDirPath = path.join(catDir, subdir)
+      const isNotesDate = category === 'notes' && subdir === 'date'
+      const targetText = subGroupTextMap[category]?.[subdir] ?? `📂${subdir}`
+      const hostGroup = isNotesDate
+        ? findOrCreateTopLevelGroup(groupArr, targetText)
+        : findOrCreateSubGroup(groupArr, category, subdir)
+      const subExistingLinks = new Set(flattenLinks([hostGroup]))
+      for (const f of getMdFiles(subDirPath)) {
+        const item = fileLink(category, [subdir], f.name)
+        if (!subExistingLinks.has(item.link)) {
+          hostGroup.items.push(item)
+        }
+      }
+
+      if (isNotesDate) {
+        const nested = (groupArr[0].items || []).find(g => g.text === targetText)
+        if (nested) {
+          const hostLinks = new Set(flattenLinks([hostGroup]))
+          for (const it of nested.items || []) {
+            if (!hostLinks.has(it.link)) hostGroup.items.push(it)
+          }
+          groupArr[0].items = (groupArr[0].items || []).filter(g => g.text !== targetText)
+        }
+      }
+    }
+  }
+  return sidebarObj
+}
+
+function normalizeNotesDateLinks(sidebarObj) {
+  const arr = sidebarObj['/notes']
+  if (!arr) return sidebarObj
+  for (const group of arr) {
+    if (group.text === '📂漂泊旅记 | 记录' && Array.isArray(group.items)) {
+      for (const it of group.items) {
+        if (typeof it.link === 'string' && it.link.startsWith('/date/')) {
+          it.link = `/notes${it.link}`
+        }
+      }
+    }
+  }
+  return sidebarObj
 }
 
 function writeSidebarFile(sidebarObj) {
@@ -72,5 +162,7 @@ function writeSidebarFile(sidebarObj) {
   fs.writeFileSync(OUTPUT_FILE, header + body, 'utf-8')
 }
 
-const sidebar = buildSidebar()
-writeSidebarFile(sidebar)
+const sidebar = parseExistingSidebar()
+const merged = mergeNewItems(sidebar)
+const normalized = normalizeNotesDateLinks(merged)
+writeSidebarFile(normalized)
