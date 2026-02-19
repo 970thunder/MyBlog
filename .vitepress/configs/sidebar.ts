@@ -217,12 +217,16 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
           "link": "/MRware/二级域名分发网站开发经历"
         },
         {
-          "text": "📑垃圾佬捡配件",
-          "link": "/MRware/垃圾佬捡配件"
+          "text": "📑装机清单-垃圾佬捡配件",
+          "link": "/MRware/装机清单-垃圾佬捡配件"
         },
         {
           "text": "📑OpenClaw教程（原ClawBot）",
           "link": "/MRware/OpenClaw教程（原ClawBot）"
+        },
+        {
+          "text": "📑装机清单-1500元ITX小钢炮",
+          "link": "/MRware/装机清单-1500元ITX小钢炮"
         }
       ]
     }

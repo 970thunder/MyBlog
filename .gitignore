@@ -1,14 +1,19 @@
-!/dist/
-!.gitignore
+# Dependencies
+node_modules/
 
-/node_modules
-/dist
-/public
-/docs
-/docs/.vitepress
-/docs/.vitepress/cache
-/docs/.vitepress/cache/
+# Build Output
+dist/
 
+# Local Scripts & Secrets
+build-docs.cmd
 .env
 .env.local
 .env.*.local
+
+# Misc (preserved from previous config)
+public/
+docs/
+
+# System Files
+.DS_Store
+Thumbs.db
