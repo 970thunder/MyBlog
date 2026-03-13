@@ -3,6 +3,7 @@ node_modules/
 
 # Build Output
 dist/
+dist/**/*
 
 # Local Scripts & Secrets
 build-docs.cmd
